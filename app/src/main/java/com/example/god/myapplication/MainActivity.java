@@ -93,9 +93,9 @@ public class MainActivity extends Activity {
                     }
                 }
 
-                int ww=pic_info_name.getList_result().size();
+                final int ww = pic_info_name.getList_result().size();
 
-                int www=pic_info_name.getList_result().size();
+                final int www = pic_info_name.getList_result().size();
 
                 try {
                     mainHandler.post(new Runnable() {
@@ -105,47 +105,61 @@ public class MainActivity extends Activity {
 
                             itemEntities = new ArrayList<ItemEntity>();
 
+                            ItemEntity [] entity_oracle = new ItemEntity[ww];
 
-                            // 1.无图片
-                            ArrayList<String> urls = new ArrayList<String>();
-                            urls.add("http://192.168.155.1:8011/webnnn/11.jpg");
-                            ItemEntity entity1 = new ItemEntity(//
-                                    "http://192.168.155.1:8011/webnnn/1.jpg", test_name[2], null, urls);
-                            itemEntities.add(entity1);
-                            // 2.1张图片
-                            ArrayList<String> urls_1 = new ArrayList<String>();
-                            urls_1.add("http://192.168.155.1:8011/webnnn/22.jpg");
-                            ItemEntity entity2 = new ItemEntity(//
-                                    "http://192.168.155.1:8011/webnnn/2.jpg", test_name[5], null, urls_1);
-                            itemEntities.add(entity2);
-                            // 3.3张图片
-                            ArrayList<String> urls_2 = new ArrayList<String>();
-                            urls_2.add("http://192.168.155.1:8011/webnnn/33.jpg");
-                            urls_2.add("http://192.168.155.1:8011/webnnn/1122.jpg");
-                            urls_2.add("http://192.168.155.1:8011/webnnn/44.jpg");
-                            ItemEntity entity3 = new ItemEntity(//
-                                    "http://192.168.155.1:8011/webnnn/3.jpg", test_name[8], null, urls_2);
-                            itemEntities.add(entity3);
-                            // 4.6张图片
-                            ArrayList<String> urls_3 = new ArrayList<String>();
-                            urls_3.add("http://192.168.155.1:8011/webnnn/55.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/66.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/77.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/88.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/99.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/55.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/66.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/77.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/88.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/99.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/55.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/66.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/77.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/88.jpg");
-                            urls_3.add("http://192.168.155.1:8011/webnnn/99.jpg");
-                            ItemEntity entity4 = new ItemEntity(//
-                                    "http://192.168.155.1:8011/webnnn/4.jpg",test_name[3], null, urls_3);
-                            itemEntities.add(entity4);
+                            for (int i =0;i<ww;i++)
+                            {
+                                ArrayList<String> urls_oracle = new ArrayList<String>();
+                                for (int j=0;j<test_name_picinfo[i].length;j++)
+                                {
+                                    urls_oracle.add(test_name_picinfo[i][j]);
+                                }
+                                entity_oracle[i] = new ItemEntity(test_name_picinfo[i][0],test_name[i],null,urls_oracle);
+
+                                itemEntities.add(entity_oracle[i]);
+
+                            }
+
+//                            // 1.无图片
+//                            ArrayList<String> urls = new ArrayList<String>();
+//                            urls.add("http://192.168.155.1:8011/webnnn/11.jpg");
+//                            ItemEntity entity1 = new ItemEntity(//
+//                                    "http://192.168.155.1:8011/webnnn/1.jpg", test_name[2], null, urls);
+//                            itemEntities.add(entity1);
+//                            // 2.1张图片
+//                            ArrayList<String> urls_1 = new ArrayList<String>();
+//                            urls_1.add("http://192.168.155.1:8011/webnnn/22.jpg");
+//                            ItemEntity entity2 = new ItemEntity(//
+//                                    "http://192.168.155.1:8011/webnnn/2.jpg", test_name[5], null, urls_1);
+//                            itemEntities.add(entity2);
+//                            // 3.3张图片
+//                            ArrayList<String> urls_2 = new ArrayList<String>();
+//                            urls_2.add("http://192.168.155.1:8011/webnnn/33.jpg");
+//                            urls_2.add("http://192.168.155.1:8011/webnnn/1122.jpg");
+//                            urls_2.add("http://192.168.155.1:8011/webnnn/44.jpg");
+//                            ItemEntity entity3 = new ItemEntity(//
+//                                    "http://192.168.155.1:8011/webnnn/3.jpg", test_name[8], null, urls_2);
+//                            itemEntities.add(entity3);
+//                            // 4.6张图片
+//                            ArrayList<String> urls_3 = new ArrayList<String>();
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/55.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/66.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/77.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/88.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/99.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/55.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/66.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/77.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/88.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/99.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/55.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/66.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/77.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/88.jpg");
+//                            urls_3.add("http://192.168.155.1:8011/webnnn/99.jpg");
+//                            ItemEntity entity4 = new ItemEntity(//
+//                                    "http://192.168.155.1:8011/webnnn/4.jpg",test_name[3], null, urls_3);
+//                            itemEntities.add(entity4);
 
 
 
